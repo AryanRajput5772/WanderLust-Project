@@ -2,8 +2,7 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
-const initData = require("./init/data.js");
-const Listing = require("./models/listing.js");
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -37,13 +36,8 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
-const initDB = async () => {
 
-  await Listing.insertMany(initData.data);
-  console.log("data  was initialized");
-};
 
-initDB();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
