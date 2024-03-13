@@ -2,6 +2,8 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
+const initData = require("./init/data.js");
+const Listing = require("./models/listing.js");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -34,6 +36,18 @@ main()
 async function main() {
   await mongoose.connect(dbUrl);
 }
+
+const initDB = async () => {
+  await Listing.deleteMany({});
+  initData.data = initData.data.map((obj) => ({
+    ...obj,
+    owner: "657874969c108042e950a545",
+  }));
+  await Listing.insertMany(initData.data);
+  console.log("data  was initialized");
+};
+
+initDB();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
