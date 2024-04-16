@@ -15,12 +15,32 @@ body {
   background-color: white;
 }
 
-.fa-brands {
-  color: black;
+.name a {
+  font-family: "Truculenta", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings: "wdth" 91.7;
+  color: #993955;
   font-size: 2rem;
+  text-decoration: none;
+}
+
+.logo {
+  margin-top: 10px;
+}
+
+.hero {
+  display: flex;
+  text-align: center;
+  align-items: baseline;
+}
+.logo {
+  color: #993955;
+  font-size: 2.5rem;
 }
 .fa-squarespace {
-  color: #fe424d;
+  color: #993955;
 }
 
 .nav-link {
@@ -39,7 +59,8 @@ body {
 }
 
 .f-info-links,
-.f-info-socials {
+.f-info-socials,
+.f-info-brand {
   width: 100%;
   display: flex;
   align-items: center;
@@ -100,14 +121,14 @@ body {
 
 /* New Page */
 .add-btn {
-  background-color: #fe424d !important;
+  background-color: #993955 !important;
   border: none !important;
 }
 
 /* Edit Page */
 
 .edit-btn {
-  background-color: #fe424d !important;
+  background-color: #993955 !important;
   border: none !important;
 }
 img {
@@ -130,9 +151,72 @@ img {
   padding-right: 0;
 }
 
+.delete-btn {
+  background-color: #993955 !important;
+}
+
 /* Map */
 
 #map {
   height: 400px;
   width: 80vh;
+}
+
+/* Filter */
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100px;
+}
+
+.filter {
+  text-align: center;
+  margin-right: 2rem;
+  margin-top: 2rem;
+
+  opacity: 0.7;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+  font-size: 17px;
+
+  border-bottom: 3px solid rgb(84, 84, 84);
+}
+
+.fa-fort-awesome,
+.fa-person-swimming {
+  font-size: 1.1rem;
+}
+
+.filter a p {
+  font-size: 0.8rem;
+}
+
+.filter a p:hover {
+  font-weight: 600;
+}
+
+.tax-info {
+  display: none;
+}
+
+.tax-toggle {
+  border: 1px solid black;
+  border-radius: 1rem;
+  height: 3.25rem;
+  padding: 1rem;
+  margin-left: 5rem;
+  display: flex;
+  align-items: center;
+}
+.tax-toggle:hover {
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+}
+.filter a {
+  color: black;
+  opacity: 0.9;
+  text-decoration: none;
 }
