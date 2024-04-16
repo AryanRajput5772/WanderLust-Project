@@ -1,13 +1,13 @@
 <style>
   .search-btn {
-    background-color: #fe424d;
+    background-color: #993955;
     color: white;
     border-radius: 25px;
     padding: 0 1rem 0 1rem;
   }
 
   .search-btn:hover {
-    background-color: #fe424d;
+    background-color: #550527;
     color: white;
   }
 
@@ -21,13 +21,27 @@
     padding: 0.5rem 3rem 0.5rem 3rem;
     font-size: 1rem;
   }
+
+  .nav-link {
+    border-radius: 25px;
+    margin: 5px;
+    padding: 3px;
+  }
+
+  .Search-link {
+    text-decoration: none;
+    color: white;
+  }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"
-      ><i class="fa-brands fa-squarespace"></i
-    ></a>
+    <div class="hero">
+      <a class="navbar-brand" href="/listings"
+        ><i class="fa-brands fa-rebel logo mb-2"></i
+      ></a>
+      <p class="name"><a href="/listings">Tourer</a></p>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -36,21 +50,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
       <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
+        <form class="d-flex" action="/listings/search" method="POST">
           <input
             class="form-control me-2 search-inp"
-            type="search"
-            placeholder="Search destinations" />
-          <button class="btn search-btn" type="submit">
+            type="text"
+            placeholder="Search destinations"
+            name="search" />
+          <button class="btn search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>Search
           </button>
         </form>
       </div>
-
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
         <% if(!currUser) {%>
