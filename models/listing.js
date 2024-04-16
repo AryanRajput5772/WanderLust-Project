@@ -34,22 +34,22 @@ const listingSchema = new Schema({
     },
   },
 
-category: {
-    type: String,
-    enum: [
-      "Mountains",
-      "Beach",
-      "Arctic",
-      "Farms",
-      "Camping",
-      "Boats",
-      "Villas",
-      "Amazing Pools",
-      "Iconic cities",
-      "Domes",
-    ],
-    required: true,
-  },
+// category: {
+//     type: String,
+//     enum: [
+//       "Mountains",
+//       "Beach",
+//       "Arctic",
+//       "Farms",
+//       "Camping",
+//       "Boats",
+//       "Villas",
+//       "Amazing Pools",
+//       "Iconic cities",
+//       "Domes",
+//     ],
+//     required: true,
+//   },
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
