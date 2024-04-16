@@ -25,11 +25,9 @@ module.exports.searchRoute = async (req, res) => {
         if (el.price > parseInt(searchText)) {
           return el;
         }
-      }
-    
-
+      });
     res.render("listings/search.ejs", { matchingListing, allListings });
-    });
+};
 
 module.exports.Boats = async (req, res) => {
     const allListings = await Listing.find({});
