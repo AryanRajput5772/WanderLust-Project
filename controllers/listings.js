@@ -27,7 +27,7 @@ module.exports.searchRoute = async (req, res) => {
         }
       }
     });
-    res.render("./listings/search.ejs", { matchingListing, allListings });
+    res.render("listings/search.ejs", { matchingListing, allListings });
 };
 
 module.exports.Boats = async (req, res) => {
