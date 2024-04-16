@@ -8,6 +8,92 @@ module.exports.index = async (req, res) => {
   res.render("./listings/index.ejs", { matchingListing });
 };
 
+module.exports.searchRoute = async (req, res) => {
+    let search = req.body.search;
+    let searchText = search.toLowerCase();
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => {
+      if (el.country.toLowerCase().includes(searchText)) {
+        return el;
+      }
+      if (el.title.toLowerCase().includes(searchText)) {
+        return el;
+      }
+      if (el.location.toLowerCase().includes(searchText)) {
+        return el;
+      } else if (typeof parseInt(searchText) == "number") {
+        if (el.price > parseInt(searchText)) {
+          return el;
+        }
+      }
+    });
+
+    res.render("listings/search.ejs", { matchingListing, allListings });
+  })
+
+module.exports.Boats = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Boats");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.Domes = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Domes");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.Arctic = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Arctic");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.Farms = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Farms");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.Camping = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Camping");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.AmazingPools = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Amazing Pools");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.Beach = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Beach");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.Mountains = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Mountains");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.IconicCities = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Iconic cities");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+module.exports.Villas = async (req, res) => {
+    const allListings = await Listing.find({});
+    let matchingListing = allListings.filter((el) => el.category === "Villas");
+    res.render("listings/index.ejs", { matchingListing });
+  })
+
+
+
+
 module.exports.renderNewForm = (req, res) => {
   res.render("listings/new.ejs");
 };
